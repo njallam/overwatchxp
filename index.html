@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset=utf-8 />
-	<title>Overwatch XP Calculator</title>
-	<script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+  <meta charset=utf-8 />
+  <title>Overwatch XP Calculator</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script src="jquery.animateNumbers.min.js"></script>
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container">
-	  <form>
-	    <div class="form-group">
-	    <label for="mode">Game mode</label>
-	    <select class="form-control" name="mode">
-	      <option value="Quick Play">Quick Play</option>
-	      <option value="Practice vs. AI">Practice vs. AI</option>
-	      <option value="Weekly Brawl">Weekly Brawl</option>
-	    </select>
-	  </div>
-	    <div class="form-group">
-	      <label for="timeplayed">Time played</label>
-	      <input class="form-control" type="time" name="timeplayed" value="10:00" />
-	      <input class="form-control" type="number" name="basexp" disabled>
-	    </div>
-	    <div class="form-group">
-	      <label class="control-label">Best medal</label>
-	      <label class="radio-inline"><input type="radio" name="medal" value="Gold">Gold</label>
-	      <label class="radio-inline"><input type="radio" name="medal" value="Silver">Silver</label>
-	      <label class="radio-inline"><input type="radio" name="medal" value="Bronze">Bronze</label>
-	      <label class="radio-inline"><input type="radio" name="medal" value="None" checked>None</label>
-	      <input class="form-control" type="number" name="medalxp" disabled>
-	    </div>
-	    <div class="form-group">
-	      <label class="control-label">Bonuses</label>
-	      <div class="checkbox"><label><input type="checkbox" name="flags" value="Match Finished">Match Finished</label></div>
-	      <div class="checkbox"><label><input type="checkbox" name="flags" value="Win">Win</label></div>
-	      <div class="checkbox"><label><input type="checkbox" name="flags" value="Consecutive Match">Consecutive Match</label></div>
-	      <div class="checkbox"><label><input type="checkbox" name="flags" value="Backfill">Backfill</label></div>
-	      <div class="checkbox"><label><input type="checkbox" name="flags" value="First Win of the Day">First Win of the Day</label></div>
-				<input class="form-control" type="number" name="bonusxp" disabled>
-	    </div>
-			<div class="form-group">
-	      <div class="checkbox">
-	        <label><input type="checkbox" name="group">Group Bonus</label>
-	      </div>
-				<input class="form-control" type="number" name="groupxp" disabled>
-				<input class="form-control" type="number" name="totalxp" disabled>
-			</div>
-	  </form>
-	</div>
+  <div class="container">
+    <form>
+      <div class="form-group">
+      <label for="mode">Game mode</label>
+      <select class="form-control" name="mode">
+        <option value="Quick Play">Quick Play</option>
+        <option value="Practice vs. AI">Practice vs. AI</option>
+        <option value="Weekly Brawl">Weekly Brawl</option>
+      </select>
+    </div>
+      <div class="form-group">
+        <label for="timeplayed">Time played</label>
+        <input class="form-control" type="time" name="timeplayed" value="10:00" />
+        <input class="form-control" type="number" name="basexp" disabled>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Best medal</label>
+        <label class="radio-inline"><input type="radio" name="medal" value="Gold">Gold</label>
+        <label class="radio-inline"><input type="radio" name="medal" value="Silver">Silver</label>
+        <label class="radio-inline"><input type="radio" name="medal" value="Bronze">Bronze</label>
+        <label class="radio-inline"><input type="radio" name="medal" value="None" checked>None</label>
+        <input class="form-control" type="number" name="medalxp" disabled>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Bonuses</label>
+        <div class="checkbox"><label><input type="checkbox" name="flags" value="Match Finished">Match Finished</label></div>
+        <div class="checkbox"><label><input type="checkbox" name="flags" value="Win">Win</label></div>
+        <div class="checkbox"><label><input type="checkbox" name="flags" value="Consecutive Match">Consecutive Match</label></div>
+        <div class="checkbox"><label><input type="checkbox" name="flags" value="Backfill">Backfill</label></div>
+        <div class="checkbox"><label><input type="checkbox" name="flags" value="First Win of the Day">First Win of the Day</label></div>
+        <input class="form-control" type="number" name="bonusxp" disabled>
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label><input type="checkbox" name="group">Group Bonus</label>
+        </div>
+        <input class="form-control" type="number" name="groupxp" disabled>
+        <input class="form-control" type="number" name="totalxp" disabled>
+      </div>
+    </form>
+  </div>
   <script src="calculator.js"></script>
 </body>
 </html>

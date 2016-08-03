@@ -55,24 +55,24 @@ $(inputs).change(calculate);
 
 //Functions
 function calculate() {
-    var mod = $(mode).val()
-    //base xp
-    var bas = timeToSeconds($(timeplayed).val()) * xp[mod]["Base XP"]
-    $(basexp).val(bas);
-    //medal xp
-    var med = ($(medalc).val() != "None") ? xp[mod][$(medalc).val()] : 0
-    $(medalxp).val(med);
-    //bonus xp
-    var bon = 0;
-    $(flagsc).each(function() {bon += xp[mod][$(this).val()] });
-    $(bonusxp).val(bon);
-    //group xp
-    var sum = bas + med + bon
-    var grp = $(group).is(':checked') ? sum * 0.2 : 0
-    $(groupxp).val(grp);
-    //total xp
-    var tot = sum + grp
-    $(totalxp).val(tot);
+  var mod = $(mode).val()
+  //base xp
+  var bas = timeToSeconds($(timeplayed).val()) * xp[mod]["Base XP"]
+  $(basexp).animateNumbers(bas);
+  //medal xp
+  var med = ($(medalc).val() != "None") ? xp[mod][$(medalc).val()] : 0
+  $(medalxp).animateNumbers(med);
+  //bonus xp
+  var bon = 0;
+  $(flagsc).each(function() {bon += xp[mod][$(this).val()] });
+  $(bonusxp).animateNumbers(bon);
+  //group xp
+  var sum = bas + med + bon
+  var grp = $(group).is(':checked') ? sum * 0.2 : 0
+  $(groupxp).animateNumbers(grp);
+  //total xp
+  var tot = sum + grp
+  $(totalxp).animateNumbers(tot);
 }
 
 function timeToSeconds(str) {
