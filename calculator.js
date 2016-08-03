@@ -58,21 +58,21 @@ function calculate() {
   var mod = $(mode).val()
   //base xp
   var bas = timeToSeconds($(timeplayed).val()) * xp[mod]["Base XP"]
-  $(basexp).animateNumbers(bas);
+  $(basexp).animateNumbers(Math.round(bas));
   //medal xp
   var med = ($(medalc).val() != "None") ? xp[mod][$(medalc).val()] : 0
-  $(medalxp).animateNumbers(med);
+  $(medalxp).animateNumbers(Math.round(med));
   //bonus xp
   var bon = 0;
   $(flagsc).each(function() {bon += xp[mod][$(this).val()] });
-  $(bonusxp).animateNumbers(bon);
+  $(bonusxp).animateNumbers(Math.round(bon));
   //group xp
   var sum = bas + med + bon
   var grp = $(group).is(':checked') ? sum * 0.2 : 0
-  $(groupxp).animateNumbers(grp);
+  $(groupxp).animateNumbers(Math.round(grp));
   //total xp
   var tot = sum + grp
-  $(totalxp).animateNumbers(tot);
+  $(totalxp).animateNumbers(Math.round(tot));
 }
 
 function timeToSeconds(str) {
