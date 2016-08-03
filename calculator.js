@@ -1,7 +1,7 @@
 //Values
 xp = {
   "Quick Play": {
-    "Base XP": 3.4,
+    "Base XP": 3.388,
     "Bronze": 50,
     "Silver": 100,
     "Gold": 150,
