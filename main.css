@@ -1,0 +1,11 @@
+nav ul, footer ul {
+  text-align: center;
+  list-style: none;
+  font-weight: bold;
+}
+nav ul li, footer ul li {
+  display: inline;
+}
+footer {
+  padding-top: 1em;
+}
